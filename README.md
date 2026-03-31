@@ -118,8 +118,8 @@ cd proje-adi
 
 ```bash
 spring.datasource.url=jdbc:postgresql://localhost:5432/db_name
-spring.datasource.username=postgres
-spring.datasource.password=1234
+spring.datasource.username=kullanici_adi
+spring.datasource.password=sifre
 ```
 
 ---
