@@ -25,8 +25,8 @@ public class SharedDataController {
     }
 
     @GetMapping("/all")
-public List<SharedDataResponse> getAll() {
-    return sharedDataService.getAll();
+public List<SharedDataResponse> getAll(org.springframework.data.domain.Pageable pageable) {
+    return sharedDataService.getAll(pageable);
 }
 
     @PutMapping("/update")

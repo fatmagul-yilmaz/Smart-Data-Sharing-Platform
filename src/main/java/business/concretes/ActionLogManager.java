@@ -1,15 +1,16 @@
 package business.concretes;
 
+import java.time.LocalDateTime;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
 import business.abstracts.ActionLogService;
 import dataAccess.abstracts.ActionLogRepository;
 import dataAccess.abstracts.UserRepository;
 import entities.concretes.ActionLog;
 import entities.enums.ActionType;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor

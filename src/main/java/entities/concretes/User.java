@@ -1,6 +1,7 @@
 package entities.concretes;
 
 import java.time.LocalDateTime;
+
 import entities.enums.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
