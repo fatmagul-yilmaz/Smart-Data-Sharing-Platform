@@ -18,18 +18,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name= "shared_data")
+@Table(name = "shared_data")
 public class SharedData {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name= "title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name= "content")
+    @Column(name = "content")
     private String content;
 
     @Column(name = "created_at", updatable = false)
@@ -38,7 +38,7 @@ public class SharedData {
     @Enumerated(EnumType.STRING)
     private DataStatus status;
 
-    @Column(name= "version")
+    @Column(name = "version")
     private Integer version;
 
     @ManyToOne(fetch = FetchType.LAZY)

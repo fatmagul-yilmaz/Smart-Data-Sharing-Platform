@@ -21,17 +21,17 @@ public class ActionLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "id")
+    @Column(name = "id")
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name= "action_type")
+    @Column(name = "action_type")
     private ActionType actionType;
 
-    @Column(name= "action_detail")
+    @Column(name = "action_detail")
     private String actionDetail;
 
-    @Column(name= "target_data_id")
+    @Column(name = "target_data_id")
     private Long targetDataId;
 
     @Column(name = "created_at", updatable = false)

@@ -9,7 +9,7 @@ public class SharedDataResponse {
     private Long id;
     private String title;
     private String content;
-    private String ownerName; 
+    private String ownerName;
     private LocalDateTime createdAt;
     private Integer version;
 }

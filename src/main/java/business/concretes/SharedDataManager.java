@@ -3,7 +3,7 @@ package business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.data.domain.Pageable; 
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +27,12 @@ public class SharedDataManager implements SharedDataService {
 
     private final SharedDataRepository sharedDataRepository;
     private final UserRepository userRepository;
-    private final ActionLogService actionLogService; 
+    private final ActionLogService actionLogService;
 
     @Override
     public void add(CreateSharedDataRequest request) {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        
+
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Kullanıcı bulunamadı"));
 
@@ -45,9 +45,9 @@ public class SharedDataManager implements SharedDataService {
 
         SharedData savedData = sharedDataRepository.save(sharedData);
 
-        actionLogService.log(ActionType.CREATE, 
-            "Yeni veri paylaşıldı: " + savedData.getTitle(), 
-            savedData.getId());
+        actionLogService.log(ActionType.CREATE,
+                "Yeni veri paylaşıldı: " + savedData.getTitle(),
+                savedData.getId());
     }
 
     @Override
@@ -59,7 +59,7 @@ public class SharedDataManager implements SharedDataService {
             response.setContent(data.getContent());
             response.setVersion(data.getVersion());
             response.setCreatedAt(data.getCreatedAt());
-            
+
             if (data.getOwner() != null) {
                 response.setOwnerName(data.getOwner().getFirstName() + " " + data.getOwner().getLastName());
             }
@@ -90,8 +90,8 @@ public class SharedDataManager implements SharedDataService {
 
         SharedData savedNewData = sharedDataRepository.save(newData);
 
-        actionLogService.log(ActionType.UPDATE, 
-            "Veri versiyonu yükseltildi. Eski ID: " + oldData.getId() + " -> Yeni ID: " + savedNewData.getId(), 
-            savedNewData.getId());
+        actionLogService.log(ActionType.UPDATE,
+                "Veri versiyonu yükseltildi. Eski ID: " + oldData.getId() + " -> Yeni ID: " + savedNewData.getId(),
+                savedNewData.getId());
     }
 }

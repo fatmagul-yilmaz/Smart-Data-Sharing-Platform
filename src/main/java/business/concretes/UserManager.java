@@ -21,13 +21,11 @@ public class UserManager {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
-    
     public String register(UserRegisterRequest request) {
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             return "Hata: Bu email adresi zaten sistemde kayıtlı!";
         }
 
-        
         User user = new User();
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
@@ -38,14 +36,11 @@ public class UserManager {
         return "Kullanıcı başarıyla kaydedildi.";
     }
 
-    
     public String login(UserLoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(), 
-                        request.getPassword()
-                )
-        );
+                        request.getEmail(),
+                        request.getPassword()));
         return jwtService.generateToken(request.getEmail());
     }
 }
