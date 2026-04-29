@@ -71,9 +71,9 @@ Authorization: Bearer <TOKEN>
 
 | Method | Endpoint | Açıklama |
 |--------|----------|---------|
-| POST | /api/shared-data | Veri ekle |
-| GET | /api/shared-data | Verileri listele |
-| PUT | /api/shared-data | Veri güncelle |
+| POST | /api/data/add | Veri ekle |
+| GET | /api/data/all | Verileri listele |
+| PUT | /api/data/update | Veri güncelle |
 
 ---
 
